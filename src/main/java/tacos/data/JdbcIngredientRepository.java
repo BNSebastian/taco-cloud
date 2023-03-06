@@ -3,8 +3,8 @@ package tacos.data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import tacos.Ingredient;
 
+import tacos.Ingredient;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -22,7 +22,7 @@ public class JdbcIngredientRepository implements IngredientRepository {
     public Iterable<Ingredient> findAll() {
         return jdbc.query("select id, name, type from Ingredient", this::mapRowToIngredient);
     }
-
+    
     @Override
     public Ingredient findOne(String id) {
         return jdbc.queryForObject("select id, name, type from Ingredient where id=?", this::mapRowToIngredient, id);

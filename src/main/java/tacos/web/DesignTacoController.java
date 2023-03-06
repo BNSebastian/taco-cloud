@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/design")
 public class DesignTacoController {
 
-    private final IngredientRepository ingredientRepo;
+    private IngredientRepository ingredientRepo;
 
     @Autowired
     public DesignTacoController(IngredientRepository ingredientRepo) {
